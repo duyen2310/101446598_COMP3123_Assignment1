@@ -5,7 +5,6 @@ const employeeRoute = require('./routes/employee');
 const userRoute = require('./routes/user'); 
 require('dotenv').config
 
-    /* "bcrypt": "^5.1.1"*/
 
 const DB_URL = process.env.DB_URL;
 const app = express();

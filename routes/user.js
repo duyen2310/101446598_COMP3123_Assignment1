@@ -3,9 +3,9 @@ const userModel = require("../models/userModel")
 const routes = express.Router()
 require('dotenv').config()
 
-const { body, validationResult } = require('express-validator');
+// const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 // create user 
 routes.post("/signup", async (req, res) => {
