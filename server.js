@@ -6,7 +6,9 @@ const userRoute = require('./routes/user');
 require('dotenv').config
 
 
-const DB_URL = process.env.DB_URL;
+// const DB_URL = process.env.DB_URL;
+const DB_URL ="mongodb+srv://truongthuykyduyen:jC5cACo4tsFG3NLf@mycluster.a0u4z.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority&appName=MyCluster";
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -25,7 +27,7 @@ app.use("/api/v1/user",userRoute);
 
 app.use("/api/v1/emp",employeeRoute);
 app.get('/', (req, res) => {
-    res.send("<h1>Welcome to Assignment 2</h1>");
+    res.send("<h1>Welcome to Assignment 1</h1>");
 });
 
 
