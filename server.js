@@ -6,7 +6,7 @@ const userRoute = require('./routes/user');
 
 
 
-const DB_URL = "mongodb+srv://truongthuykyduyen:R2YYaUii0fPspBwk@mycluster.a0u4z.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority&appName=MyCluster";
+const DB_URL = "mongodb+srv://truongthuykyduyen:jC5cACo4tsFG3NLf@mycluster.a0u4z.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority&appName=MyCluster";
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
