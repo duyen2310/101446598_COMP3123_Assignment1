@@ -5,7 +5,7 @@ const employeeRoute = require('./routes/employee');
 const userRoute = require('./routes/user'); 
 require('dotenv').config();
 const cors = require('cors');
-
+//CORS CONNECTUION
 // MongoDB connection string
 const DB_URL = "mongodb+srv://truongthuykyduyen:jC5cACo4tsFG3NLf@mycluster.a0u4z.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority&appName=MyCluster";
 
