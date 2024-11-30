@@ -82,9 +82,9 @@ routes.post("/login", async (req, res) => {
             //chech pwd
             await bcrypt.compare(userPassword, curr_user.password, (err, result) => {
                 if (result)
-                    res.status(200).send(JSON.stringify({ "message": "Login successful" }))
+                    return res.status(200).json({ "status": true, "message": "Login successful" });
                 else
-                    res.status(400).json({ "message": "Incorrect Password" })
+                return res.status(400).json({ "status": false, "message": "Incorrect Password" });
             })
         }
 
