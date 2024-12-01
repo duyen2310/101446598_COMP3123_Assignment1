@@ -24,7 +24,7 @@ router.get("/employees", async (req, res) => {
         res.status(500).send({message: err.message})
     })
 });
-
+//get emp info with id
 router.get("/employees/:employeeid", async (req, res) => {
     try {
         const employee = await employeeModel.findById(req.params.employeeid);
