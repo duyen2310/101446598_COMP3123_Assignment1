@@ -58,6 +58,38 @@ router.put("/employees/:employeeid", async (req, res) => {
 });
 
 
+//SEARCH
+
+router.get("/employee/search", async (req, res) => {
+    try {
+        const { search } = req.query;
+        
+        if (!search) {
+            return res.status(400).send({ message: "Search term is required" });
+        }
+
+        let searchCriteria = {
+            $or: [
+                { department: { $regex: search, $options: 'i' } }, 
+                { position: { $regex: search, $options: 'i' } }    
+            ]
+        };
+
+        const employees = await employeeModel.find(searchCriteria);
+
+        if (employees.length === 0) {
+            return res.status(404).send({ message: "No employees found matching the criteria." });
+        }
+
+        res.send(employees); 
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+});
+
+
+
+
 router.delete("/employees/", async (req, res) => {
     try {
         if (!mongoose.Types.ObjectId.isValid(req.query.eid)) {
@@ -73,7 +105,8 @@ router.delete("/employees/", async (req, res) => {
     } catch (e) {
         res.status(500).send(e)
     }
-});
+}
+);
 
 
 module.exports = router;
