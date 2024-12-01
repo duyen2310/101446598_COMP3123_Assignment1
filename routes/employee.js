@@ -24,6 +24,21 @@ router.get("/employees", async (req, res) => {
         res.status(500).send({message: err.message})
     })
 });
+
+router.get("/employees/:employeeid", async (req, res) => {
+    try {
+        const employee = await employeeModel.findById(req.params.employeeid);
+        
+        if (!employee) {
+            return res.status(404).send({ message: "Employee not found" });
+        }
+
+        res.status(200).send(employee);
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+});
+
 router.put("/employees/:employeeid", async (req, res) => {
     const updateData = {
         ...req.body,
